@@ -9,7 +9,7 @@
 
 grammar Aql;
 
-statement : 'hello' ID ;
+aql : 'hello' ID ;
 
 ID : [a-z]+;
 WS : [ \t\r\n]+ -> skip ;
