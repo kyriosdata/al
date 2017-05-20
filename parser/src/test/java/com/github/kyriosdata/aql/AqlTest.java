@@ -29,9 +29,9 @@ public class AqlTest {
         AqlLexer lexer = new AqlLexer(stream);
         CommonTokenStream cts = new CommonTokenStream(lexer);
         AqlParser parser = new AqlParser(cts);
-        ParseTree pt = parser.r();
+        ParseTree pt = parser.statement();
 
-        assertEquals("(r hello atencao)", pt.toStringTree(parser));
+        assertEquals("(statement hello atencao)", pt.toStringTree(parser));
     }
 
     private CodePointCharStream wrapStringEmStream(String string) {
