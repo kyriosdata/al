@@ -12,20 +12,36 @@ grammar Aql;
 aql : select from where? orderBy? EOF ;
 
 select  : 'SELECT'   selectPath ;
-from    : 'FROM'     variable ;
-where   : 'WHERE'    variable ;
-orderBy : 'ORDER BY' variable ;
+from    : 'FROM'     VARIABLE ;
+where   : 'WHERE'    VARIABLE ;
+orderBy : 'ORDER BY' VARIABLE ;
 
-as : 'AS' variable ;
+as : 'AS' VARIABLE ;
 selectPath : path as? (',' selectPath)* ;
 
+// Section 3.3 openEHR path syntax
 path      : pathPart ('/' pathPart)* ;
-pathPart  : variable predicate? ;
-predicate : '[' variable ']' ;
+pathPart  : VARIABLE predicate? ;
+predicate : '[' VARIABLE ']' ;
 
-variable : LETTER+ (LETTER | DIGIT | '_' )*;
+VARIABLE : LETTER (LETTER | DIGIT | '_' )*;
 
-LETTER : 'a'..'z'|'A'..'Z' ;
-DIGIT  : '0'..'9' ;
+// Section 3.5.3 Parameter syntax
+PARAMETER : '$' VARIABLE ;
 
-WS : [ \t\r\n]+ -> skip ;
+LETTER : [a-zA-Z] ;
+DIGIT  : [0-9] ;
+
+WHITESPACE : [ \t\r\n]+ -> skip ;
+
+standardPredicate : leftHand OPERATOR rightHand ;
+leftHand  : path ;
+rightHand : path | OPERAND ;
+OPERATOR : '>' | '<' | '>=' | '<=' | '=' | '!=' ;
+OPERAND : CONSTANT | PARAMETER ;
+
+// CONSTANTS
+BOOLEAN  : 'true' | 'false' ;
+INTEGER  : '-'? DIGIT+ ;
+REAL     : '-'? DIGIT+ '.' DIGIT+ ;
+CONSTANT : '\'' (BOOLEAN | INTEGER | REAL) '\'' ;
