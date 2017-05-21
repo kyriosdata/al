@@ -7,21 +7,49 @@
 // Creative Commons Attribution 4.0 International License.
 //
 
+// ISSUES
+// - upper and lower cases are not ignored (mixed)
+
 grammar Aql;
+
+// Reserved words
+AND             : 'AND' ;
+AS              : 'AS' ;
+CONTAINS        : 'CONTAINS' ;
+CURRENTDATE     : 'current-date' ;
+CURRENTDATETIME : 'current-date-time' ;
+EXISTS          : 'exists' ;
+FROM            : 'FROM' ;
+IN              : 'in' ;
+LET             : 'LET' ;
+MATCHES         : 'matches' ;
+MAX             : 'max' ;
+NOTIN           : 'not in' ;
+NOW             : 'now' ;
+OR              : 'OR' ;
+ORDERBY         : 'ORDER BY' ;
+SELECT          : 'SELECT' ;
+TIMEWINDOW      : 'TIMEWINDOW' ;
+TOP             : 'TOP' ;
+WHERE           : 'WHERE' ;
+
+fragment INTERVAL        : '|' ;
+fragment DOUBLESTR       : '"' ;
+fragment SINGLESTR       : '\'' ;
 
 aql : lets? select from where? orderBy? EOF ;
 
 // Section 1.4 Further discussion
-lets    : ('LET'     assignment '\n')* ;
+lets    : (LET assignment '\n')+ ;
 
-select  : 'SELECT'   selectPath ;
-from    : 'FROM'     VARIABLE ;
-where   : 'WHERE'    VARIABLE ;
-orderBy : 'ORDER BY' VARIABLE ;
+select  : SELECT  selectPath ;
+from    : FROM    VARIABLE ;
+where   : WHERE   VARIABLE ;
+orderBy : ORDERBY VARIABLE ;
 
 assignment : PARAMETER '=' path ;
 
-as         : 'AS' VARIABLE ;
+as         : AS VARIABLE ;
 selectPath : path as? (',' selectPath)* ;
 
 // Section 3.3 openEHR path syntax

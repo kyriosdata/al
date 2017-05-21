@@ -20,10 +20,10 @@
       <file leaf-file-name="Aql.g4" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/antlr4/Aql.g4">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="69">
-              <caret line="15" column="0" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+            <state relative-caret-position="240">
+              <caret line="10" column="50" lean-forward="false" selection-start-line="10" selection-start-column="50" selection-end-line="10" selection-end-column="50" />
               <folding>
-                <element signature="e#0#1208#0" expanded="true" />
+                <element signature="e#0#1917#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -730,7 +730,7 @@
       <workItem from="1495309298618" duration="7303000" />
       <workItem from="1495326574179" duration="41000" />
       <workItem from="1495327144402" duration="7168000" />
-      <workItem from="1495379202182" duration="916000" />
+      <workItem from="1495379202182" duration="2186000" />
     </task>
     <task id="LOCAL-00001" summary="ambientacao com antlr v4">
       <created>1495313093021</created>
@@ -781,7 +781,14 @@
       <option name="project" value="LOCAL" />
       <updated>1495337039370</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="grammar">
+      <created>1495386754333</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1495386754333</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -814,7 +821,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="15428000" />
+    <option name="totallyTimeSpent" value="16698000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="318" y="23" width="1549" height="1075" extended-state="0" />
@@ -880,7 +887,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#0#1208#0" expanded="true" />
+            <element signature="e#0#1917#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -917,7 +924,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#0#1208#0" expanded="true" />
+            <element signature="e#0#1917#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -927,7 +934,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#0#1208#0" expanded="true" />
+            <element signature="e#0#1917#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1002,10 +1009,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/antlr4/Aql.g4">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="69">
-          <caret line="15" column="0" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+        <state relative-caret-position="240">
+          <caret line="10" column="50" lean-forward="false" selection-start-line="10" selection-start-column="50" selection-end-line="10" selection-end-column="50" />
           <folding>
-            <element signature="e#0#1208#0" expanded="true" />
+            <element signature="e#0#1917#0" expanded="true" />
           </folding>
         </state>
       </provider>
