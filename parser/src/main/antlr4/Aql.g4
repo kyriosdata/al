@@ -34,9 +34,8 @@ TOP             : 'TOP' ;
 WHERE           : 'WHERE' ;
 
 fragment INTERVAL        : '|' ;
-fragment DOUBLESTR       : '"' ;
-fragment SINGLESTR       : '\'' ;
 
+// MAIN RULE (everything is governed by aql rule)
 aql : lets? select from where? orderBy? EOF ;
 
 // Section 1.4 Further discussion
@@ -47,7 +46,9 @@ from    : FROM    VARIABLE ;
 where   : WHERE   VARIABLE ;
 orderBy : ORDERBY VARIABLE ;
 
-assignment : PARAMETER '=' path ;
+// Sample of assignment: $x = 'a/b[at001]/x' (double or single quotes)
+assignment : PARAMETER '=' markedPath ;
+markedPath : '"' path '"' | '\'' path '\'' ;
 
 as         : AS VARIABLE ;
 selectPath : path as? (',' selectPath)* ;
