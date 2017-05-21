@@ -9,14 +9,19 @@
 
 grammar Aql;
 
-aql : select from where? orderBy? EOF ;
+aql : lets? select from where? orderBy? EOF ;
+
+// Section 1.4 Further discussion
+lets    : ('LET'     assignment '\n')* ;
 
 select  : 'SELECT'   selectPath ;
 from    : 'FROM'     VARIABLE ;
 where   : 'WHERE'    VARIABLE ;
 orderBy : 'ORDER BY' VARIABLE ;
 
-as : 'AS' VARIABLE ;
+assignment : PARAMETER '=' path ;
+
+as         : 'AS' VARIABLE ;
 selectPath : path as? (',' selectPath)* ;
 
 // Section 3.3 openEHR path syntax
