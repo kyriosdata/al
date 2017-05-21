@@ -55,8 +55,8 @@ selectPath : path as? (',' selectPath)* ;
 
 // Section 3.3 openEHR path syntax
 path      : pathPart ('/' pathPart)* ;
-pathPart  : VARIABLE predicate? ;
-predicate : '[' VARIABLE ']' ;
+pathPart  : VARIABLE codedTerm? ;
+codedTerm : '[' VARIABLE ']' ;
 
 VARIABLE : LETTER (LETTER | DIGIT | '_' )*;
 
