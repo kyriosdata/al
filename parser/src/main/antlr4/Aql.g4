@@ -9,7 +9,23 @@
 
 grammar Aql;
 
-aql : 'hello' ID ;
+aql : select from where? orderBy? EOF ;
 
-ID : [a-z]+;
+select  : 'SELECT'   selectPath ;
+from    : 'FROM'     variable ;
+where   : 'WHERE'    variable ;
+orderBy : 'ORDER BY' variable ;
+
+as : 'AS' variable ;
+selectPath : path as? (',' selectPath)* ;
+
+path      : pathPart ('/' pathPart)* ;
+pathPart  : variable predicate? ;
+predicate : '[' variable ']' ;
+
+variable : LETTER+ (LETTER | DIGIT | '_' )*;
+
+LETTER : 'a'..'z'|'A'..'Z' ;
+DIGIT  : '0'..'9' ;
+
 WS : [ \t\r\n]+ -> skip ;
