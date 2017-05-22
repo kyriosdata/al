@@ -33,38 +33,35 @@ TIMEWINDOW      : 'TIMEWINDOW' ;
 TOP             : 'TOP' ;
 WHERE           : 'WHERE' ;
 
-fragment INTERVAL        : '|' ;
-
 // MAIN RULE (everything is governed by aql rule)
 aql : lets? select from where? orderBy? EOF ;
 
 // Section 1.4 Further discussion
-lets    : (LET assignment '\n')+ ;
+lets    : (LET PARAMETER '=' ('"' path '"' | '\'' path '\'') '\n')+ ;
 
 select  : SELECT  selectPath ;
-from    : FROM    VARIABLE ;
-where   : WHERE   VARIABLE ;
-orderBy : ORDERBY VARIABLE ;
+from    : FROM    archetypeID ;
+where   : WHERE   ID ;
+orderBy : ORDERBY ID ;
 
-// Sample of assignment: $x = 'a/b[at001]/x' (double or single quotes)
-assignment : PARAMETER '=' markedPath ;
-markedPath : '"' path '"' | '\'' path '\'' ;
+archetypeID : '[' ID '-' ID '-' ID '.' ID '.v' NUMBER ']';
 
-as         : AS VARIABLE ;
+as         : AS ID ;
 selectPath : path as? (',' selectPath)* ;
 
 // Section 3.3 openEHR path syntax
 path      : pathPart ('/' pathPart)* ;
-pathPart  : VARIABLE codedTerm? ;
-codedTerm : '[' VARIABLE ']' ;
+pathPart  : ID codedTerm? ;
+codedTerm : '[' ID ']' ;
 
-VARIABLE : LETTER (LETTER | DIGIT | '_' )*;
+// Identifier starts with a letter
+ID : LETTER (LETTER | DIGIT | '_' )*;
 
 // Section 3.5.3 Parameter syntax
-PARAMETER : '$' VARIABLE ;
+PARAMETER : '$' ID ;
 
-LETTER : [a-zA-Z] ;
-DIGIT  : [0-9] ;
+fragment LETTER : [a-zA-Z] ;
+fragment DIGIT  : [0-9] ;
 
 WHITESPACE : [ \t\r\n]+ -> skip ;
 
@@ -75,7 +72,8 @@ OPERATOR : '>' | '<' | '>=' | '<=' | '=' | '!=' ;
 OPERAND : CONSTANT | PARAMETER ;
 
 // CONSTANTS
+NUMBER   : DIGIT+ ;
 BOOLEAN  : 'true' | 'false' ;
-INTEGER  : '-'? DIGIT+ ;
-REAL     : '-'? DIGIT+ '.' DIGIT+ ;
+INTEGER  : '-'? NUMBER ;
+REAL     : '-'? NUMBER '.' NUMBER ;
 CONSTANT : '\'' (BOOLEAN | INTEGER | REAL) '\'' ;
