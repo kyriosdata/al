@@ -4,5 +4,5 @@
 <br />Fábio Nogueira de Lucena - Fábrica de Software - Instituto de Informática (UFG).
 
 # ArchetypeBot
-É mais difícil tentar definir um "bot" do que ilustrar, por exemplo, Siri e Cortana são exemplos de "chatbots". Nesse contexto, estamos falando de um software para localizar e exibir informação baseada em arquétipos. 
+É mais difícil tentar definir um "bot" do que ilustrar, por exemplo, Siri e Cortana são exemplos de "chatbots". Nesse contexto, estamos falando de um software para localizar e exibir informação baseada em arquétipos, noutras palavras, é um "assistente virtual" para recuperar informação em saúde registrada com base em arquétipos.  
 
