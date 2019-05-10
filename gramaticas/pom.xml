@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.github.kyriosdata.healthdb</groupId>
+  <artifactId>al</artifactId>
+  <version>0.0.0-SNAPSHOT</version>
+  <name>AL</name>
+  <description>
+    Implementação dos analisadores sintáticos e léxicos para as linguagens
+    ADL e AQL.
+  </description>
+  <url>https://github.com/kyriosdata/al</url>
+  <licenses>
+    <license>
+      <name>The Apache License, Version 2.0</name>
+      <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
+  <developers>
+    <developer>
+      <id>kyriosdata</id>
+      <name>Fábio Nogueira de Lucena</name>
+      <email>fabio@inf.ufg.br</email>
+      <organizationUrl>http://www.inf.ufg.br</organizationUrl>
+    </developer>
+  </developers>
+  <scm>
+    <connection>scm:git:https://github.com/kyriosdata/al.git</connection>
+    <developerConnection>scm:git:git@github.com:kyriosdata/al.git</developerConnection>
+    <url>https://github.com/kyriosdata/al.git</url>
+  </scm>
+  <properties>
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <package.name>com.github.kyriosdata.healthdb.al</package.name>
+    <antlr4.out>${project.build.directory}/com/github/kyriosdata/healthdb/al</antlr4.out>
+  </properties>
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.antlr</groupId>
+        <artifactId>antlr4-maven-plugin</artifactId>
+        <version>4.5.3</version>
+        <configuration>
+          <arguments>
+            <argument>-package</argument>
+            <argument>${package.name}</argument>
+          </arguments>
+          <sourceDirectory>${basedir}/src/main/antlr</sourceDirectory>
+          <outputDirectory>${antlr4.out}</outputDirectory>
+        </configuration>
+        <executions>
+          <execution>
+            <id>antlr</id>
+            <goals>
+              <goal>antlr4</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>  
+  </build>
+  <dependencies>
+    <dependency>
+      <groupId>org.antlr</groupId>
+      <artifactId>antlr4-runtime</artifactId>
+      <version>4.7.2</version>
+    </dependency>
+  </dependencies>
+</project>
