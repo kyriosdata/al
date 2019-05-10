@@ -8,5 +8,5 @@
 # Projetos pertinentes
 - https://github.com/JacSoyYo/aqlparser
 - https://github.com/openEHR/adl2-core
-https://github.com/openehr/archie (atualização de https://github.com/nedap/archie)
+- https://github.com/openehr/archie (atualização de https://github.com/nedap/archie)
 
